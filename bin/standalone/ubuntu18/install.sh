@@ -5,7 +5,7 @@
 ################################################################################
         set -x                                                                 ;
                                                                                #
-        version="1.18.10-00"                                                   ;
+        version="1.18.14-00"                                                   ;
                                                                                #
         curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg          \
         |                                                                      \
