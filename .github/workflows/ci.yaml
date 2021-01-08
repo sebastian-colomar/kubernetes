@@ -1,0 +1,47 @@
+################################################################################
+#      Copyright (C) 2020        Sebastian Francisco Colomar Bauza             #
+#      SPDX-License-Identifier:  GPL-2.0-only                                  #
+################################################################################
+name: CI                                                                       #
+on:                                                                            #
+  push:                                                                        #
+    branches:                                                                  #
+    - main                                                                     #
+jobs:                                                                          #
+  kubernetes:                                                                  #
+    env:                                                                       #
+      mode: kubernetes                                                         #
+    runs-on: ubuntu-18.04                                                      #
+    steps:                                                                     #
+    - name: checkout                                                           #
+      uses: actions/checkout@v2                                                #
+    - name: test                                                               #
+      run: |                                                                   #
+        set -x                                                                 ;
+                                                                               #
+        branch=$(basename $GITHUB_REF)                                         ;
+        project=$(basename $GITHUB_REPOSITORY)                                 ;
+                                                                               #
+        echo $branch | grep ^v[0-9]                                            \
+          && release=$( echo $branch | sed 's/^v\([0-9]\)/\1/' )               \
+          || release=latest                                                    ;
+                                                                               #
+        uuid=.                                                                 ;
+        path=$uuid/bin/standalone/ubuntu18/install.sh                          ;
+        source $path                                                           ;
+        path=$uuid/bin/configs-secrets-gen.sh                                  ;
+        source $path                                                           ;
+                                                                               #
+        while true							                                               ;
+          do									                                                 \
+          kubectl get node							                                       \
+          |									                                                   \
+          grep Ready								                                           \
+          |									                                                   \
+          grep --invert-match NotReady						                             \
+          &&									                                                 \
+          break									                                               \
+                                                                               ;
+          sleep 10                                             								 ;
+        done									                                                 ;
+################################################################################
