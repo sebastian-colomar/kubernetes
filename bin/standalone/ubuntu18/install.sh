@@ -6,6 +6,8 @@
         set -x                                                                 ;
                                                                                #
         version="1.18.14-00"                                                   ;
+        calico="v3.17"                                                         ;
+        pod_network_cidr="192.168.0.0/16"                                      ;
                                                                                #
         curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg          \
         |                                                                      \
@@ -19,7 +21,7 @@
         ip=$( ip r | grep default | awk '{ print $9 }' )                       ;
         sudo swapoff -a                                                        ;
         sudo kubeadm init --apiserver-advertise-address $ip                    \
-          --pod-network-cidr=192.168.0.0/16 --ignore-preflight-errors=all      ;
+          --pod-network-cidr=$pod_network_cidr --ignore-preflight-errors=all   ;
                                                                                #
         mkdir -p $HOME/.kube                                                   ;
         sudo cp /etc/kubernetes/admin.conf $HOME/.kube/config                  ;
