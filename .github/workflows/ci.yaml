@@ -29,6 +29,10 @@ jobs:                                                                          #
         uuid=.                                                                 ;
         path=$uuid/bin/standalone/ubuntu18/install.sh                          ;
         source $path                                                           ;
+        mkdir -p run/configs                                                   ;
+        mkdir -p run/secrets                                                   ;
+        touch run/configs/file                                                 ;
+        touch run/secrets/file                                                 ;
         path=$uuid/bin/configs-secrets-gen.sh                                  ;
         source $path                                                           ;
                                                                                #
