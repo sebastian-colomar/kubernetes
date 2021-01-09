@@ -95,6 +95,10 @@ Metadata:
         default: The internal listening port for Target Group Worker
       PrivateIpAddressInstanceMaster1:
         default: The private IP address for Master 1
+      PrivateIpAddressInstanceMaster2:
+        default: The private IP address for Master 2
+      PrivateIpAddressInstanceMaster3:
+        default: The private IP address for Master 3
       ProtocolListenerWorker:
         default: The protocol for Listener Worker
       ProtocolTargetGroupWorker:
@@ -212,6 +216,18 @@ Parameters:
     Default: 10.168.1.100
     Description: >
       The private IP address for Master 1.
+    Type: String
+    
+  PrivateIpAddressInstanceMaster2:
+    Default: 10.168.3.100
+    Description: >
+      The private IP address for Master 2.
+    Type: String
+    
+  PrivateIpAddressInstanceMaster3:
+    Default: 10.168.5.100
+    Description: >
+      The private IP address for Master 3.
     Type: String
     
   ProtocolListenerWorker:
@@ -335,7 +351,7 @@ Resources:
       PrivateIpAddress: !Ref PrivateIpAddressInstanceMaster2
       SecurityGroupIds:
         - !GetAtt VPC.DefaultSecurityGroup
-      SubnetId: !Ref SubnetPrivate1
+      SubnetId: !Ref SubnetPrivate2
       UserData:
         "Fn::Base64":
           !Sub |
@@ -354,7 +370,7 @@ Resources:
       PrivateIpAddress: !Ref PrivateIpAddressInstanceMaster3
       SecurityGroupIds:
         - !GetAtt VPC.DefaultSecurityGroup
-      SubnetId: !Ref SubnetPrivate1
+      SubnetId: !Ref SubnetPrivate3
       UserData:
         "Fn::Base64":
           !Sub |
