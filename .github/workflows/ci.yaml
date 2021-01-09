@@ -8,7 +8,7 @@ on:                                                                            #
     branches:                                                                  #
     - main                                                                     #
 jobs:                                                                          #
-  kubernetes:                                                                  #
+  standalone:                                                                  #
     env:                                                                       #
       mode: kubernetes                                                         #
     runs-on: ubuntu-18.04                                                      #
@@ -29,6 +29,52 @@ jobs:                                                                          #
         uuid=.                                                                 ;
         path=$uuid/bin/standalone/ubuntu18/install.sh                          ;
         source $path                                                           ;
+        mkdir -p run/configs                                                   ;
+        mkdir -p run/secrets                                                   ;
+        touch run/configs/file                                                 ;
+        touch run/secrets/file                                                 ;
+        path=$uuid/bin/configs-secrets-gen.sh                                  ;
+        source $path                                                           ;
+                                                                               #
+        while true							                                               ;
+          do									                                                 \
+          kubectl get node							                                       \
+          |									                                                   \
+          grep Ready								                                           \
+          |									                                                   \
+          grep --invert-match NotReady						                             \
+          &&									                                                 \
+          break									                                               \
+                                                                               ;
+          sleep 10                                             								 ;
+        done									                                                 ;
+                                                                               #
+  cluster:                                                                     #
+    env:                                                                       #
+      mode: kubernetes                                                         #
+    runs-on: ubuntu-18.04                                                      #
+    steps:                                                                     #
+    - name: checkout                                                           #
+      uses: actions/checkout@v2                                                #
+    - name: test                                                               #
+      run: |                                                                   #
+        set -x                                                                 ;
+                                                                               #
+        branch=$(basename $GITHUB_REF)                                         ;
+        project=$(basename $GITHUB_REPOSITORY)                                 ;
+                                                                               #
+        echo $branch | grep ^v[0-9]                                            \
+          && release=$( echo $branch | awk -F^v '{ print $2 }' )               \
+          || release=latest                                                    ;
+                                                                               #
+        uuid=.                                                                 ;
+        path=$uuid/bin/cluster/ubuntu18/install-node.sh                        ;
+        source $path                                                           ;
+        path=$uuid/bin/cluster/ubuntu18/install-leader.sh                      ;
+        source $path                                                           ;
+        master=$( kubectl get node | grep master | awk '{ print $1 }' )        ;
+        kubectl taint node $master node-role.kubernetes.io/master:NoSchedule-  ;
+                                                                               #
         mkdir -p run/configs                                                   ;
         mkdir -p run/secrets                                                   ;
         touch run/configs/file                                                 ;
