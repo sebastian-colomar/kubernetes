@@ -6,10 +6,10 @@
 ################################################################################
 set -x                                                                         ;
                                                                                #
-apt-get update                                                                 ;
-apt-get install -y docker.io                                                   ;
-systemctl enable docker                                                        ;
-systemctl start docker                                                         ;
+sudo apt-get update                                                            ;
+sudo apt-get install -y docker.io                                              ;
+sudo systemctl enable docker                                                   ;
+sudo systemctl start docker                                                    ;
 while true                                                                     ;
   do                                                                           \
     service docker status | grep running -q && break                           ;
