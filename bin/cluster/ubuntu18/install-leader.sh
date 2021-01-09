@@ -41,8 +41,7 @@ sudo kubeadm init                                                       \
                 all                                                     \
         2>&1                                                            \
 |                                                                       \
-tee --append $log                                                       \
-                                                                        ;
+tee --append $log                                                       ;
 #########################################################################
 sudo kubectl apply                                                      \
         --filename                                                      \
@@ -51,16 +50,14 @@ sudo kubectl apply                                                      \
                 $kubeconfig                                             \
         2>&1                                                            \
 |                                                                       \
-tee --append $log                                                       \
-                                                                        ;
+tee --append $log                                                       ;
 #########################################################################
 mkdir -p $HOME/.kube                                                    ;
 sudo cp /etc/kubernetes/admin.conf $HOME/.kube/config                   ;
 sudo chown -R $(id -u):$(id -g) $HOME/.kube/                            ;
 echo 'source <(kubectl completion bash)'                                \
 |                                                                       \
-tee --append $HOME/.bashrc                                              \
-                                                                        ;
+tee --append $HOME/.bashrc                                              ;
 #########################################################################
 while true                                                              ;
 do                                                                      \
@@ -109,11 +106,25 @@ token_token=$(                                                          \
         base64 --wrap 0                                                 \
 )                                                                       ;
 #########################################################################
-echo YOU WILL NEED THE FOLLOWING TOKENS TO COMPLETE THE INSTALL         ;
-echo FIRST IN THE MASTERS AND THEN IN THE WORKERS                       ;
-echo export token_certificate=$token_certificate                        ;
-echo export token_discovery=$token_discovery                            ;
-echo export token_token=$token_token                                    ;
-echo export ip_leader=$ip_leader                                        ;
-echo export kube=$kube                                                  ;
+echo YOU WILL NEED THE FOLLOWING TOKENS TO COMPLETE THE INSTALL         \
+|                                                                       \
+tee --append $log                                                       ;
+echo FIRST IN THE MASTERS AND THEN IN THE WORKERS                       \
+|                                                                       \
+tee --append $log                                                       ;
+echo export token_certificate=$token_certificate                        \
+|                                                                       \
+tee --append $log                                                       ;
+echo export token_discovery=$token_discovery                            \
+|                                                                       \
+tee --append $log                                                       ;
+echo export token_token=$token_token                                    \
+|                                                                       \
+tee --append $log                                                       ;
+echo export ip_leader=$ip_leader                                        \
+|                                                                       \
+tee --append $log                                                       ;
+echo export kube=$kube                                                  \
+|                                                                       \
+tee --append $log                                                       ;
 #########################################################################
