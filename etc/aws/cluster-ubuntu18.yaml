@@ -434,7 +434,7 @@ Resources:
     Properties: 
       AliasTarget: 
         DNSName: !GetAtt LoadBalancerWorker.DNSName
-        HostedZoneId: !GetAtt LoadBalancerMaster1.CanonicalHostedZoneID
+        HostedZoneId: !GetAtt LoadBalancerWorker.CanonicalHostedZoneID
       HostedZoneName: !Sub '${HostedZoneName}.'
       Name: !Sub '${RecordSetName}.${HostedZoneName}'
       Type: A
