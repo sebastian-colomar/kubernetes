@@ -56,7 +56,7 @@ tee --append $log                                                       \
 #########################################################################
 mkdir -p $HOME/.kube                                                    ;
 sudo cp /etc/kubernetes/admin.conf $HOME/.kube/config                   ;
-sudo chown -R $(id -u):$(id -g) $HOME/.kube/config                      ;
+sudo chown -R $(id -u):$(id -g) $HOME/.kube/                            ;
 echo 'source <(kubectl completion bash)'                                \
 |                                                                       \
 tee --append $HOME/.bashrc                                              \
