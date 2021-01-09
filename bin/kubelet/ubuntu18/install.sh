@@ -18,7 +18,7 @@ sudo tee -a /etc/apt/sources.list.d/kubernetes.list                     ;
 sudo apt-get update                                                     ;
 sudo apt-get install -y --allow-downgrades                              \
         kubelet=$version kubeadm=$version kubectl=$version              ;
-sudo systemctl enable --now	kubelet                                     ;
+sudo systemctl enable --now	kubelet                                 ;
 #########################################################################
 while true                                                              ;
 do                                                                      \
