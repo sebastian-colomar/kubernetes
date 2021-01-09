@@ -112,6 +112,9 @@ tee --append $log                                                       ;
 echo FIRST IN THE MASTERS AND THEN IN THE WORKERS                       \
 |                                                                       \
 tee --append $log                                                       ;
+echo export ip_leader=$ip_leader                                        \
+|                                                                       \
+tee --append $log                                                       ;
 echo export token_certificate=$token_certificate                        \
 |                                                                       \
 tee --append $log                                                       ;
@@ -119,9 +122,6 @@ echo export token_discovery=$token_discovery                            \
 |                                                                       \
 tee --append $log                                                       ;
 echo export token_token=$token_token                                    \
-|                                                                       \
-tee --append $log                                                       ;
-echo export ip_leader=$ip_leader                                        \
 |                                                                       \
 tee --append $log                                                       ;
 echo export kube=$kube                                                  \
