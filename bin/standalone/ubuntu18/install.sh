@@ -28,7 +28,7 @@
         sudo chown $(id -u):$(id -g) $HOME/.kube/config                        ;
         echo "source <(kubectl completion bash)" >> ~/.bashrc                  ;
         kubectl apply -f                                                       \
-          https://docs.projectcalico.org/v3.17/manifests/calico.yaml           ;
+          https://docs.projectcalico.org/$calico/manifests/calico.yaml         ;
         master=$( kubectl get node | grep master | awk '{ print $1 }' )        ;
                                                                                #
         kubectl taint node $master node-role.kubernetes.io/master:NoSchedule-  ;
