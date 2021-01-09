@@ -11,7 +11,7 @@ test -n "$token_discovery"      || exit 100                             ;
 test -n "$token_token"          || exit 100                             ;
 #########################################################################
 compose=etc/docker/swarm/docker-compose.yaml                            ;
-log=/tmp/install-worker.sh                                              ;
+log=/tmp/install-worker.log                                             ;
 sleep=10                                                                ;
 uuid=/tmp/$( uuidgen )                                                  ;
 #########################################################################
