@@ -116,5 +116,4 @@ echo export token_discovery=$token_discovery                            ;
 echo export token_token=$token_token                                    ;
 echo export ip_leader=$ip_leader                                        ;
 echo export kube=$kube                                                  ;
-echo export log=$log                                                    ;
 #########################################################################
