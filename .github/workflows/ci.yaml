@@ -6,7 +6,7 @@ name: CI                                                                       #
 on:                                                                            #
   push:                                                                        #
     branches:                                                                  #
-    - main                                                                     #
+    - v1.1                                                                     #
 jobs:                                                                          #
   standalone:                                                                  #
     env:                                                                       #
