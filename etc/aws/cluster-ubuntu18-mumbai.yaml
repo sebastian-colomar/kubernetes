@@ -20,9 +20,6 @@ Metadata:
           default: Cluster Common Configuration
         Parameters:
           - BranchAWS
-          - NodeInstallUrlPath
-          - NodeInstallUrlFileMaster
-          - NodeInstallUrlFileWorker
       -
         Label:
           default: Cluster Master Configuration
@@ -83,12 +80,6 @@ Metadata:
         default: The IP protocol for Listener Worker
       HttpCodeTargetGroupWorker:
         default: The HTTP codes to use when checking for a successful response from Worker Group
-      NodeInstallUrlPath:
-        default: The URL path to download the script for the common install of the nodes
-      NodeInstallUrlFileMaster:
-        default: The name of the script for the common install of the Master nodes
-      NodeInstallUrlFileWorker:
-        default: The name of the script for the common install of the Worker nodes
       PortListenerWorker:
         default: The listening port for Listener Worker
       PortTargetGroupWorker:
@@ -180,24 +171,6 @@ Parameters:
     Default: "200-399"
     Description: >
       The HTTP codes to use when checking for a successful response from Worker Group.
-    Type: String
-    
-  NodeInstallUrlPath:
-    Default: "https://github.com/academiaonline/kubernetes"
-    Description: >
-      The URL path to download the script for the common install of the nodes.
-    Type: String
-    
-  NodeInstallUrlFileMaster:
-    Default: bin/cluster/ubuntu18/install-node.sh
-    Description: >
-      The name of the script for the common install of the Master nodes.
-    Type: String
-    
-  NodeInstallUrlFileWorker:
-    Default: bin/cluster/ubuntu18/install-node.sh
-    Description: >
-      The name of the script for the common install of the Worker nodes.
     Type: String
     
   PortListenerWorker:
