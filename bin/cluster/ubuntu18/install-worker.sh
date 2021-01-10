@@ -4,14 +4,18 @@
 #      Copyright (C) 2020        Sebastian Francisco Colomar Bauza      #
 #      SPDX-License-Identifier:  GPL-2.0-only                           #
 #########################################################################
-set +x && test "$debug" = true && set -x                                ;
+set -x                                                                  ;
 #########################################################################
-test -n "$kube"                 || exit 100                             ;
-test -n "$token_discovery"      || exit 100                             ;
-test -n "$token_token"          || exit 100                             ;
+test -n "$ip_master1"           || exit 301                             ;
+test -n "$ip_master2"           || exit 302                             ;
+test -n "$ip_master3"           || exit 303                             ;
+test -n "$kube"                 || exit 304                             ;
+test -n "$token_discovery"      || exit 305                             ;
+test -n "$token_token"          || exit 306                             ;
 #########################################################################
 compose=etc/docker/swarm/docker-compose.yaml                            ;
 log=/tmp/install-worker.log                                             ;
+port_master=6443                                                        ;
 sleep=10                                                                ;
 uuid=/tmp/$( uuidgen )                                                  ;
 #########################################################################
@@ -20,6 +24,14 @@ git clone                                                               \
         https://github.com/secobau/nlb                                  \
         $uuid                                                           ;
 sed --in-place s/worker/manager/ $uuid/$compose                         ;
+sed --in-place s/port_master/$port_master/                              \
+        $uuid/run/secrets/etc/nginx/conf.d/default.conf                 ;
+sed --in-place s/ip_master1/$ip_master1/                                \
+        $uuid/run/secrets/etc/nginx/conf.d/default.conf                 ;
+sed --in-place s/ip_master2/$ip_master2/                                \
+        $uuid/run/secrets/etc/nginx/conf.d/default.conf                 ;
+sed --in-place s/ip_master3/$ip_master3/                                \
+        $uuid/run/secrets/etc/nginx/conf.d/default.conf                 ;
 sudo cp --recursive --verbose $uuid/run/* /run                          ;
 sudo docker swarm init                                                  ;
 sudo docker stack deploy --compose-file $uuid/$compose nlb              ;
