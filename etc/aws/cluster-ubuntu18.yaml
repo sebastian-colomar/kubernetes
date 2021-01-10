@@ -137,13 +137,15 @@ Parameters:
     Type: String
 
   Identifier:
-    Default: '31ea6050-d1a0-4e91-a37b-ed862904188c'
+    #Default: '31ea6050-d1a0-4e91-a37b-ed862904188c' #IRELAND
+    Default: 'c3f3310b-f4ed-4874-8849-bd5c2cfe001f' #MUMBAI
     Description: >
       The Identifier of the certificate you want to use.
     Type: String
 
   InstanceMasterImageId:
-    Default: 'ami-0dc8d444ee2a42d8a'
+    #Default: 'ami-0dc8d444ee2a42d8a' #IRELAND
+    Default: 'ami-0db0b3ab7df22e366' #MUMBAI
     Description: >
       Select AMI to use for the Cluster Master instances. 
       When it's left blank, the default AMI for your AWS region will be used. 
@@ -151,13 +153,14 @@ Parameters:
     Type: String
     
   InstanceMasterInstanceType:
-    Default: 't2.micro'
+    Default: 't3a.small'
     Description: >
       Select Amazon EC2 instance type for the Cluster Master instances.
     Type: String
     
   InstanceWorkerImageId:
-    Default: 'ami-0dc8d444ee2a42d8a'
+    #Default: 'ami-0dc8d444ee2a42d8a' #IRELAND
+    Default: 'ami-0db0b3ab7df22e366' #MUMBAI
     Description: >
       Select AMI to use for the Cluster Worker instances. 
       When it's left blank, the default AMI for your AWS region will be used. 
@@ -165,7 +168,7 @@ Parameters:
     Type: String
     
   InstanceWorkerInstanceType:
-    Default: 't2.micro'
+    Default: 't3a.micro'
     Description: >
       Select Amazon EC2 instance type for the Cluster Worker instances.
     Type: String
