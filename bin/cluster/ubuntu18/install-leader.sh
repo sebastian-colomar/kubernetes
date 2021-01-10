@@ -4,7 +4,7 @@
 #      Copyright (C) 2020        Sebastian Francisco Colomar Bauza      #
 #      SPDX-License-Identifier:  GPL-2.0-only                           #
 #########################################################################
-set +x && test "$debug" = true && set -x                                ;
+set -x                                                                  ;
 #########################################################################
 ip_leader=$( ip r | grep default | awk '{ print $9 }' )                 ;
 kube=kube-apiserver                                                     ;
