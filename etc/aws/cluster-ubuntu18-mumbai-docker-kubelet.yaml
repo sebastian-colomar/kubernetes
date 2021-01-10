@@ -192,13 +192,13 @@ Parameters:
     Type: String
     
   NodeInstallUrlFileMaster:
-    Default: bin/cluster/ubuntu18/install-node.sh
+    Default: bin/cluster/ubuntu18/install-docker-kubelet.sh
     Description: >
       The name of the script for the common install of the Master nodes.
     Type: String
     
   NodeInstallUrlFileWorker:
-    Default: bin/cluster/ubuntu18/install-node.sh
+    Default: bin/cluster/ubuntu18/install-docker-kubelet.sh
     Description: >
       The name of the script for the common install of the Worker nodes.
     Type: String
