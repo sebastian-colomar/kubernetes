@@ -4,7 +4,7 @@
 #      Copyright (C) 2020        Sebastian Francisco Colomar Bauza      #
 #      SPDX-License-Identifier:  GPL-2.0-only                           #
 #########################################################################
-set +x && test "$debug" = true && set -x                                ;
+set -x                                                                  ;
 #########################################################################
 test -n "$ip_leader"            || exit 201                             ;
 test -n "$kube"                 || exit 202                             ;
