@@ -127,4 +127,7 @@ tee --append $log                                                       ;
 echo export kube=$kube                                                  \
 |                                                                       \
 tee --append $log                                                       ;
+echo export ip_master1=$ip_leader                                       \
+|                                                                       \
+tee --append $log                                                       ;
 #########################################################################
