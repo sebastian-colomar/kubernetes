@@ -1,5 +1,5 @@
 #!/bin/sh
-# ./bin/cluster/ubuntu18/install-node.sh
+# ./bin/cluster/ubuntu18/install-docker-kubelet.sh
 #########################################################################
 #      Copyright (C) 2020        Sebastian Francisco Colomar Bauza      #
 #      SPDX-License-Identifier:  GPL-2.0-only                           #
