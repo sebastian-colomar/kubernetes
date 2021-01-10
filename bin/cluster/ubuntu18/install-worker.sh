@@ -13,7 +13,7 @@ test -n "$kube"                 || exit 304                             ;
 test -n "$token_discovery"      || exit 305                             ;
 test -n "$token_token"          || exit 306                             ;
 #########################################################################
-compose=etc/docker/swarm/docker-compose.yaml                            ;
+compose=etc/swarm/nlb.yaml                                              ;
 log=/tmp/install-worker.log                                             ;
 port_master=6443                                                        ;
 sleep=10                                                                ;
@@ -23,7 +23,10 @@ git clone                                                               \
         --single-branch --branch docker                                 \
         https://github.com/academiaonline/nlb                           \
         $uuid                                                           ;
-sed --in-place s/worker/manager/ $uuid/$compose                         ;
+sed --in-place s/worker/manager/                                        \
+        $uuid/$compose                                                  ;
+sed --in-place s/port_master/$port_master/                              \
+        $uuid/$compose                                                  ;
 sed --in-place s/port_master/$port_master/                              \
         $uuid/run/secrets/etc/nginx/conf.d/default.conf                 ;
 sed --in-place s/ip_master1/$ip_master1/                                \
