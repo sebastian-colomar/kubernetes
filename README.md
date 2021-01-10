@@ -1,5 +1,5 @@
 # kubernetes
-![CI](https://github.com/academiaonline/kubernetes/workflows/CI/badge.svg?branch=main)
+![CI](https://github.com/academiaonline/kubernetes/workflows/CI/badge.svg?branch=v1.2)
 
 On the leader (master1):
 ```
