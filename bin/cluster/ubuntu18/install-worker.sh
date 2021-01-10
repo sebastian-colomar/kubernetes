@@ -20,8 +20,8 @@ sleep=10                                                                ;
 uuid=/tmp/$( uuidgen )                                                  ;
 #########################################################################
 git clone                                                               \
-        --single-branch --branch v1.1                                   \
-        https://github.com/secobau/nlb                                  \
+        --single-branch --branch docker                                 \
+        https://github.com/academiaonline/nlb                           \
         $uuid                                                           ;
 sed --in-place s/worker/manager/ $uuid/$compose                         ;
 sed --in-place s/port_master/$port_master/                              \
