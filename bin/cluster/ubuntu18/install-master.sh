@@ -6,11 +6,11 @@
 #########################################################################
 set +x && test "$debug" = true && set -x                                ;
 #########################################################################
-test -n "$ip_leader"            || exit 100                             ;
-test -n "$kube"                 || exit 100                             ;
-test -n "$token_certificate"    || exit 100                             ;
-test -n "$token_discovery"      || exit 100                             ;
-test -n "$token_token"          || exit 100                             ;
+test -n "$ip_leader"            || exit 201                             ;
+test -n "$kube"                 || exit 202                             ;
+test -n "$token_certificate"    || exit 203                             ;
+test -n "$token_discovery"      || exit 204                             ;
+test -n "$token_token"          || exit 205                             ;
 #########################################################################
 log=/tmp/install-master.sh                                              ;
 sleep=10                                                                ;
@@ -41,8 +41,7 @@ do                                                                      \
         |                                                               \
         grep enabled                                                    \
         &&                                                              \
-        break                                                           \
-                                                                        ;
+        break                                                           ;
         sleep $sleep                                                    ;
 done                                                                    ;
 #########################################################################
@@ -55,12 +54,10 @@ do                                                                      \
                 --ignore-preflight-errors all                           \
                 2>&1                                                    \
         |                                                               \
-        tee --append $log                                               \
-                                                                        ;
+        tee --append $log                                               ;
         grep 'This node has joined the cluster' $log                    \
         &&                                                              \
-        break                                                           \
-                                                                        ;
+        break                                                           ;
         sleep $sleep                                                    ;
 done                                                                    ;
 #########################################################################
@@ -69,8 +66,7 @@ sudo cp /etc/kubernetes/admin.conf $HOME/.kube/config                   ;
 sudo chown -R $(id -u):$(id -g) $HOME/.kube/                            ;
 echo 'source <(kubectl completion bash)'                                \
 |                                                                       \
-tee --append $HOME/.bashrc                                              \
-                                                                        ;
+tee --append $HOME/.bashrc                                              ;
 #########################################################################
 sudo sed --in-place                                                     \
         /$kube/d                                                        \
@@ -78,4 +74,8 @@ sudo sed --in-place                                                     \
 sudo sed --in-place                                                     \
         /127.0.0.1.*localhost/s/$/' '$kube/                             \
         /etc/hosts                                                      ;
+#########################################################################
+echo export ip_master=$( ip r | grep default | awk '{ print $9 }' )     \
+|                                                                       \
+tee --append $log                                                       ;
 #########################################################################
