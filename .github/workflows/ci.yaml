@@ -68,7 +68,7 @@ jobs:                                                                          #
           || release=latest                                                    ;
                                                                                #
         uuid=.                                                                 ;
-        path=$uuid/bin/cluster/ubuntu18/install-node.sh                        ;
+        path=$uuid/bin/cluster/ubuntu18/install-docker-kubelet.sh              ;
         source $path                                                           ;
         path=$uuid/bin/cluster/ubuntu18/install-leader.sh                      ;
         source $path                                                           ;
