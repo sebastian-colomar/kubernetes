@@ -75,7 +75,7 @@ sudo sed --in-place                                                     \
         /127.0.0.1.*localhost/s/$/' '$kube/                             \
         /etc/hosts                                                      ;
 #########################################################################
-echo export ip_master=$( ip r | grep default | awk '{ print $9 }' )     \
+echo export ip_masterX=$( ip r | grep default | awk '{ print $9 }' )    \
 |                                                                       \
 tee --append $log                                                       ;
 #########################################################################
