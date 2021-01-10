@@ -12,7 +12,7 @@ test -n "$token_certificate"    || exit 203                             ;
 test -n "$token_discovery"      || exit 204                             ;
 test -n "$token_token"          || exit 205                             ;
 #########################################################################
-log=/tmp/install-master.sh                                              ;
+log=/tmp/install-master.log                                             ;
 sleep=10                                                                ;
 #########################################################################
 token_certificate="$(                                                   \
