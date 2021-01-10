@@ -20,7 +20,7 @@ sleep=10                                                                ;
 uuid=/tmp/$( uuidgen )                                                  ;
 #########################################################################
 git clone                                                               \
-        --single-branch --branch v2.2                                   \
+        --single-branch --branch v2.3                                   \
         https://github.com/academiaonline/nlb                           \
         $uuid                                                           ;
 sed --in-place s/worker/manager/                                        \
