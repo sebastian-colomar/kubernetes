@@ -10,8 +10,7 @@ git clone https://github.com/academiaonline/kubernetes --single-branch -b main
 
 # CHOOSE THE CONFIGURATION FOR YOUR CLUSTER DEPENDING ON THE OS / REGION / PROTOCOL
 # https://github.com/academiaonline/kubernetes/tree/main/etc/aws
-# cluster=cluster-ubuntu18-mumbai-docker-kubelet-https
-cluster=cluster-ubuntu18-mumbai-docker-kubelet-http
+cluster=cluster-3masters-3workers-ubuntu18-mumbai-docker-kubelet-http
 
 location=kubernetes/etc/aws/$cluster.yaml
 aws cloudformation create-stack --stack-name $cluster-$( date +%s ) --template-body file://$location --capabilities CAPABILITY_NAMED_IAM
