@@ -9,8 +9,6 @@ on:                                                                            #
     - main                                                                     #
 jobs:                                                                          #
   kubernetes:                                                                  #
-    env:                                                                       #
-      mode: kubernetes                                                         #
     runs-on: ubuntu-18.04                                                      #
     steps:                                                                     #
     - name: checkout                                                           #
