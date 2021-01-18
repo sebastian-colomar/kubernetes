@@ -9,7 +9,7 @@ aws configure
 git clone https://github.com/academiaonline/kubernetes --single-branch -b v2.0
 
 # CHOOSE THE CONFIGURATION FOR YOUR CLUSTER DEPENDING ON THE OS / REGION / PROTOCOL
-# https://github.com/academiaonline/kubernetes/tree/main/etc/aws
+# https://github.com/academiaonline/kubernetes/tree/v2.0/etc/aws
 cluster=cluster-1master-2workers-ubuntu18-mumbai-docker-kubelet-http
 cluster=cluster-3masters-3workers-ubuntu18-mumbai-docker-kubelet-http
 
