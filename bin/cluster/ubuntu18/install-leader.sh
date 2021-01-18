@@ -6,7 +6,7 @@
 #########################################################################
 set -x                                                                  ;
 #########################################################################
-ip_leader=$( ip r | grep eth0.*kernel | awk '{ print $9 }' )            ;
+ip_leader=$( ip r | grep -v docker | awk '/kernel/{ print $9 }' )       ;
 kube=kube-apiserver                                                     ;
 log=/tmp/install-leader.log                                             ;
 sleep=10                                                                ;
