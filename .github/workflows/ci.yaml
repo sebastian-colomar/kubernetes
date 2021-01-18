@@ -36,18 +36,18 @@ jobs:                                                                          #
         path=$uuid/bin/configs-secrets-gen.sh                                  ;
         source $path                                                           ;
                                                                                #
-        while true							                                               ;
-          do									                                                 \
-          kubectl get node							                                       \
-          |									                                                   \
-          grep Ready								                                           \
-          |									                                                   \
-          grep --invert-match NotReady						                             \
-          &&									                                                 \
-          break									                                               \
+        while true                                                             ;
+          do                                                                   \
+          kubectl get node                                                     \
+          |                                                                    \
+          grep Ready                                                           \
+          |                                                                    \
+          grep --invert-match NotReady                                         \
+          &&                                                                   \
+          break                                                                \
                                                                                ;
-          sleep 10                                             								 ;
-        done									                                                 ;
+          sleep 10                                                             ;
+        done                                                                   ;
                                                                                #
   cluster:                                                                     #
     env:                                                                       #
@@ -82,16 +82,16 @@ jobs:                                                                          #
         path=$uuid/bin/configs-secrets-gen.sh                                  ;
         source $path                                                           ;
                                                                                #
-        while true							                                               ;
-          do									                                                 \
-          kubectl get node							                                       \
-          |									                                                   \
-          grep Ready								                                           \
-          |									                                                   \
-          grep --invert-match NotReady						                             \
-          &&									                                                 \
-          break									                                               \
+        while true                                                             ;
+          do                                                                   \
+          kubectl get node                                                     \
+          |                                                                    \
+          grep Ready                                                           \
+          |                                                                    \
+          grep --invert-match NotReady                                         \
+          &&                                                                   \
+          break                                                                \
                                                                                ;
-          sleep 10                                             								 ;
-        done									                                                 ;
+          sleep 10                                                             ;
+        done                                                                   ;
 ################################################################################
