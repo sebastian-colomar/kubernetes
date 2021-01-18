@@ -1,12 +1,12 @@
 # How to install a Kubernetes cluster
-![CI](https://github.com/academiaonline/kubernetes/workflows/CI/badge.svg?branch=main)
+![CI](https://github.com/academiaonline/kubernetes/workflows/CI/badge.svg?branch=v2.0)
 
 ## How to create the infrastructure in AWS
 On Cloud9:
 ```
 aws configure
 
-git clone https://github.com/academiaonline/kubernetes --single-branch -b main
+git clone https://github.com/academiaonline/kubernetes --single-branch -b v2.0
 
 # CHOOSE THE CONFIGURATION FOR YOUR CLUSTER DEPENDING ON THE OS / REGION / PROTOCOL
 # https://github.com/academiaonline/kubernetes/tree/main/etc/aws
@@ -20,12 +20,12 @@ aws cloudformation create-stack --stack-name $cluster-$( date +%s ) --template-b
 ## How to install a Kubernetes cluster with 3 masters and any number of workers
 On the leader (master1):
 ```
-git clone https://github.com/academiaonline/kubernetes --single-branch -b main
+git clone https://github.com/academiaonline/kubernetes --single-branch -b v2.0
 source kubernetes/bin/cluster/ubuntu18/install-leader.sh
 ```
 On the master2 and master3:
 ```
-git clone https://github.com/academiaonline/kubernetes --single-branch -b main
+git clone https://github.com/academiaonline/kubernetes --single-branch -b v2.0
 
 # EXPORT THE FOLLOWING VARIABLES FROM THE OUTPUT OF THE LEADER
 export ip_leader=xxx
@@ -38,7 +38,7 @@ source kubernetes/bin/cluster/ubuntu18/install-master.sh
 ```
 On the workers:
 ```
-git clone https://github.com/academiaonline/kubernetes --single-branch -b main
+git clone https://github.com/academiaonline/kubernetes --single-branch -b v2.0
 
 # EXPORT THE FOLLOWING VARIABLES FROM THE OUTPUT OF THE LEADER
 export token_discovery=xxx
@@ -56,12 +56,12 @@ source kubernetes/bin/cluster/ubuntu18/install-worker.sh
 ## How to install a Kubernetes cluster with 1 single master and any number of workers
 On the leader (master1):
 ```
-git clone https://github.com/academiaonline/kubernetes --single-branch -b main
+git clone https://github.com/academiaonline/kubernetes --single-branch -b v2.0
 source kubernetes/bin/cluster/ubuntu18/install-leader.sh
 ```
 On the workers:
 ```
-git clone https://github.com/academiaonline/kubernetes --single-branch -b main
+git clone https://github.com/academiaonline/kubernetes --single-branch -b v2.0
 
 # EXPORT THE FOLLOWING VARIABLES FROM THE OUTPUT OF THE LEADER
 export token_discovery=xxx
