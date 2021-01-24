@@ -22,6 +22,7 @@ On the leader (master1):
 ```
 git clone https://github.com/academiaonline/kubernetes --single-branch -b main
 source kubernetes/bin/cluster/ubuntu18/install-docker-kubelet.sh
+
 source kubernetes/bin/cluster/ubuntu18/install-leader.sh
 ```
 On the master2 and master3:
