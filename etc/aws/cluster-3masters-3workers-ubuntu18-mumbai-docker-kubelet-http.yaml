@@ -112,7 +112,7 @@ Metadata:
 Parameters:
 
   BranchAWS:
-    Default: "simplilearn"
+    Default: "main"
     Description: >
       The branch of the git repo to download the script for the common install of the nodes.
     Type: String
