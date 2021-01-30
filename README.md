@@ -12,6 +12,7 @@ git clone https://github.com/academiaonline/kubernetes --single-branch -b main
 # https://github.com/academiaonline/kubernetes/tree/main/etc/aws
 cluster=cluster-1master-2workers-ubuntu18-mumbai-docker-kubelet-http
 cluster=cluster-3masters-3workers-ubuntu18-mumbai-docker-kubelet-http
+cluster=cluster-3masters-3workers-ubuntu18-mumbai-docker-kubelet-https
 
 location=kubernetes/etc/aws/$cluster.yaml
 aws cloudformation create-stack --stack-name $cluster-$( date +%s ) --template-body file://$location --capabilities CAPABILITY_NAMED_IAM
