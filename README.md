@@ -22,7 +22,7 @@ aws cloudformation create-stack --stack-name $cluster-$( date +%s ) --template-b
 On the leader (master1):
 ```
 git clone https://github.com/academiaonline/kubernetes --single-branch -b main
-source kubernetes/bin/cluster/ubuntu18/install-leader.sh
+source kubernetes/ubuntu18/bin/install-leader.sh
 ```
 On the master2 and master3:
 ```
@@ -35,7 +35,7 @@ export token_discovery=xxx
 export token_token=xxx
 export kube=kube-xxx
 
-source kubernetes/bin/cluster/ubuntu18/install-master.sh
+source kubernetes/ubuntu18/bin/install-master.sh
 ```
 On the workers:
 ```
@@ -51,14 +51,14 @@ export ip_master1=xxx
 export ip_master2=xxx
 export ip_master3=xxx
 
-source kubernetes/bin/cluster/ubuntu18/install-worker.sh
+source kubernetes/ubuntu18/bin/install-worker.sh
 ```
 
 ## How to install a Kubernetes cluster with 1 single master and any number of workers
 On the leader (master1):
 ```
 git clone https://github.com/academiaonline/kubernetes --single-branch -b main
-source kubernetes/bin/cluster/ubuntu18/install-leader.sh
+source kubernetes/ubuntu18/bin/install-leader.sh
 ```
 On the workers:
 ```
@@ -70,5 +70,5 @@ export token_token=xxx
 export kube=kube-xxx
 export ip_master1=xxx
 
-source kubernetes/bin/cluster/ubuntu18/install-worker-singlemaster.sh
+source kubernetes/ubuntu18/bin/install-worker-singlemaster.sh
 ```

@@ -25,9 +25,9 @@ jobs:                                                                          #
           || release=latest                                                    ;
                                                                                #
         uuid=.                                                                 ;
-        path=$uuid/bin/cluster/ubuntu18/install-docker-kubelet.sh              ;
+        path=$uuid/ubuntu18/bin/install-docker-kubelet.sh                      ;
         source $path                                                           ;
-        path=$uuid/bin/cluster/ubuntu18/install-leader.sh                      ;
+        path=$uuid/ubuntu18/bin/install-leader.sh                              ;
         source $path                                                           ;
         master=$( kubectl get node | grep master | awk '{ print $1 }' )        ;
         kubectl taint node $master node-role.kubernetes.io/master:NoSchedule-  ;
