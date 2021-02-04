@@ -8,13 +8,15 @@ aws configure
 
 git clone https://github.com/academiaonline/kubernetes --single-branch -b main
 
-# CHOOSE THE CONFIGURATION FOR YOUR CLUSTER DEPENDING ON THE OS / REGION / PROTOCOL
+# CHOOSE THE CONFIGURATION FOR YOUR CLUSTER DEPENDING ON THE REGION AND PROTOCOL
 # https://github.com/academiaonline/kubernetes/tree/main/etc/aws
 cluster=mumbai-kubelet-3masters-3workers-https
 
+# CHOOSE YOUR OPERATING SYSTEM
 os=rhel8
 os=ubuntu18
 
+# CHOOSE YOUR CONTAINER ENGINE
 engine=containerd
 engine=docker
 engine=cri-o
@@ -27,9 +29,11 @@ aws cloudformation create-stack --stack-name $cluster-$( date +%s ) --template-b
 ## How to install a Kubernetes cluster with 3 masters and any number of workers
 On the leader (master1):
 ```
+# CHOOSE YOUR OPERATING SYSTEM
 os=rhel8
 os=ubuntu18
 
+# CHOOSE YOUR CONTAINER ENGINE
 engine=containerd
 engine=docker
 engine=cri-o
@@ -39,9 +43,11 @@ source kubernetes/${os}/${engine}/bin/install-leader.sh
 ```
 On the master2 and master3:
 ```
+# CHOOSE YOUR OPERATING SYSTEM
 os=rhel8
 os=ubuntu18
 
+# CHOOSE YOUR CONTAINER ENGINE
 engine=containerd
 engine=docker
 engine=cri-o
@@ -59,9 +65,11 @@ source kubernetes/${os}/${engine}/bin/install-master.sh
 ```
 On the workers:
 ```
+# CHOOSE YOUR OPERATING SYSTEM
 os=rhel8
 os=ubuntu18
 
+# CHOOSE YOUR CONTAINER ENGINE
 engine=containerd
 engine=docker
 engine=cri-o
@@ -84,9 +92,11 @@ source kubernetes/${os}/${engine}/bin/install-worker.sh
 ## How to install a Kubernetes cluster with 1 single master and any number of workers
 On the leader (master1):
 ```
+# CHOOSE YOUR OPERATING SYSTEM
 os=rhel8
 os=ubuntu18
 
+# CHOOSE YOUR CONTAINER ENGINE
 engine=containerd
 engine=docker
 engine=cri-o
@@ -96,9 +106,11 @@ source kubernetes/${os}/${engine}/bin/install-leader.sh
 ```
 On the workers:
 ```
+# CHOOSE YOUR OPERATING SYSTEM
 os=rhel8
 os=ubuntu18
 
+# CHOOSE YOUR CONTAINER ENGINE
 engine=containerd
 engine=docker
 engine=cri-o
