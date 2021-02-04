@@ -7,12 +7,15 @@
 set -x                                                                  ;
 #########################################################################
 baseurl=https://packages.cloud.google.com				;
-engine=containerd							;
+engine=cri-o								;
 log=/tmp/install-docker-kubelet.log                                     ;
-repo=https://download.docker.com/linux/centos/docker-ce.repo		;
+OS=CentOS_8								;
+repo_path=/etc/yum.repos.d/devel:kubic:libcontainers			;
+repo_url=https://download.opensuse.org/repositories/devel		;
 rpm_key=https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg	;
 sleep=10                                                                ;
-version="1.18.14-00"                                                    ;
+version="1.18.14-0"                                                     ;
+VERSION=1.18:1.18.14							;
 yum_key=https://packages.cloud.google.com/yum/doc/yum-key.gpg		;
 #########################################################################
 #sudo yum update -y							;
@@ -27,7 +30,7 @@ path=amazon-ssm-${region}/latest/linux_amd64/amazon-ssm-agent.rpm	;
 sudo yum install -y 							\
 	https://s3.${region}.amazonaws.com/${path}			;
 #########################################################################
-sudo tee /etc/modules-load.d/containerd.conf <<EOF
+sudo tee /etc/modules-load.d/${engine}.conf <<EOF
 overlay
 br_netfilter
 EOF
@@ -41,14 +44,14 @@ net.bridge.bridge-nf-call-ip6tables = 1
 EOF
 sudo sysctl --system							;
 #########################################################################
-sudo yum install -y yum-utils device-mapper-persistent-data lvm2	;
-sudo yum-config-manager --add-repo ${repo}				;
-sudo yum install -y ${engine}.io					\
+sudo curl -L -o ${repo_path}:stable.repo				\
+	${repo_url}:/kubic:/libcontainers:/stable/$OS/devel:kubic:libcontainers:stable.repo	;
+sudo curl -L -o ${repo_path}:stable:cri-o:$VERSION.repo			\
+	${repo_url}:kubic:libcontainers:stable:cri-o:$VERSION/$OS/devel:kubic:libcontainers:stable:cri-o:$VERSION.repo	;
+sudo yum install -y ${engine}						\
         2>& 1                                                           \
 |                                                                       \
 tee --append $log                                                       ;
-sudo mkdir -p /etc/containerd						;
-containerd config default | sudo tee /etc/containerd/config.toml	;
 sudo systemctl restart ${engine}					\
         2>& 1                                                           \
 |                                                                       \

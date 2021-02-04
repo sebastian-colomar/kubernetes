@@ -246,7 +246,7 @@ Parameters:
     Type: String
 
   RecordSetName:
-    Default: app
+    Default: kube-service
     Description: >
       The name of the Record Set for service.
     Type: String

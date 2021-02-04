@@ -1,5 +1,5 @@
 #!/bin/bash -x
-#	./bin/cluster/rhel8/install-worker-singlemaster.sh
+#	./rhel8-containerd/bin/install-worker-singlemaster.sh
 #########################################################################
 #      Copyright (C) 2020        Sebastian Francisco Colomar Bauza      #
 #      SPDX-License-Identifier:  GPL-2.0-only                           #

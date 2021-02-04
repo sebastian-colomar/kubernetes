@@ -1,23 +1,12 @@
-#!/bin/sh
-# ./bin/cluster/ubuntu18/install-docker-kubelet.sh
+#!/bin/bash -x
+# ./bin/cluster/ubuntu18/install-kubelet.sh
 #########################################################################
 #      Copyright (C) 2020        Sebastian Francisco Colomar Bauza      #
 #      SPDX-License-Identifier:  GPL-2.0-only                           #
 #########################################################################
 set -x                                                                  ;
 #########################################################################
-log=/tmp/install-docker-kubelet.log                                     ;
-#########################################################################
-sudo apt-get update                                                     ;
-sudo apt-get install -y docker.io                                       \
-        2>& 1                                                           \
-|                                                                       \
-tee --append $log                                                       ;
-sudo systemctl enable --now docker                                      \
-        2>& 1                                                           \
-|                                                                       \
-tee --append $log                                                       ;
-#########################################################################
+log=/tmp/install-kubelet.log                                            ;
 sleep=10                                                                ;
 version="1.18.14-00"                                                    ;
 #########################################################################
