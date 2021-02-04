@@ -21,9 +21,9 @@ engine=containerd
 engine=docker
 engine=cri-o
 
-location=kubernetes/${os}/${engine}/etc/aws/$cluster.yaml
+location=kubernetes/${os}/${engine}/etc/aws/${cluster}.yaml
 
-aws cloudformation create-stack --stack-name $cluster-$( date +%s ) --template-body file://$location --capabilities CAPABILITY_NAMED_IAM
+aws cloudformation create-stack --stack-name ${os}-${engine}-${cluster}-$( date +%s ) --template-body file://${location} --capabilities CAPABILITY_NAMED_IAM
 ```
 
 ## How to install a Kubernetes cluster with 3 masters and any number of workers
