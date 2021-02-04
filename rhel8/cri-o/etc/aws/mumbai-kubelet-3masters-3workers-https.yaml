@@ -244,7 +244,7 @@ Parameters:
     Type: String
 
   RecordSetName:
-    Default: app
+    Default: kubernetes
     Description: >
       The name of the Record Set for service.
     Type: String
