@@ -14,7 +14,7 @@ repo_url=https://download.opensuse.org/repositories/devel		;
 rpm_key=https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg	;
 sleep=10                                                                ;
 version="1.18.14-0"                                                     ;
-VERSION=1.18:1.18.14							;
+VERSION=1.18								;
 yum_key=https://packages.cloud.google.com/yum/doc/yum-key.gpg		;
 #########################################################################
 #sudo yum update -y							;
