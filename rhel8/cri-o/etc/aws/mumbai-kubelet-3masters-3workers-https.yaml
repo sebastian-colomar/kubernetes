@@ -190,13 +190,13 @@ Parameters:
     Type: String
     
   NodeInstallUrlFileMaster:
-    Default: rhel8-containerd/bin/install-docker-kubelet.sh
+    Default: rhel8/cri-o/bin/install-container-kubelet.sh
     Description: >
       The name of the script for the common install of the Master nodes.
     Type: String
     
   NodeInstallUrlFileWorker:
-    Default: rhel8-containerd/bin/install-docker-kubelet.sh
+    Default: rhel8/cri-o/bin/install-container-kubelet.sh
     Description: >
       The name of the script for the common install of the Worker nodes.
     Type: String

@@ -1,5 +1,4 @@
 #!/bin/sh
-# ./bin/cluster/ubuntu18/install-docker-kubelet.sh
 #########################################################################
 #      Copyright (C) 2020        Sebastian Francisco Colomar Bauza      #
 #      SPDX-License-Identifier:  GPL-2.0-only                           #
@@ -8,7 +7,7 @@ set -x                                                                  ;
 #########################################################################
 baseurl=https://packages.cloud.google.com				;
 engine=cri-o								;
-log=/tmp/install-docker-kubelet.log                                     ;
+log=/tmp/install-container-kubelet.log                                  ;
 OS=CentOS_8								;
 repo_path=/etc/yum.repos.d/devel:kubic:libcontainers			;
 repo_url=https://download.opensuse.org/repositories/devel		;
