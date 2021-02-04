@@ -6,12 +6,14 @@
 #########################################################################
 set -x                                                                  ;
 #########################################################################
-engine=containerd							;
 baseurl=https://packages.cloud.google.com				;
+engine=containerd							;
 log=/tmp/install-docker-kubelet.log                                     ;
 repo=https://download.docker.com/linux/centos/docker-ce.repo		;
-yum_key=https://packages.cloud.google.com/yum/doc/yum-key.gpg		;
 rpm_key=https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg	;
+sleep=10                                                                ;
+version="1.18.14-00"                                                    ;
+yum_key=https://packages.cloud.google.com/yum/doc/yum-key.gpg		;
 #########################################################################
 #sudo yum update -y							;
 sudo yum install -y python3						;
