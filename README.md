@@ -23,7 +23,7 @@ engine=cri-o
 
 location=kubernetes/${os}/${engine}/etc/aws/${cluster}.yaml
 
-aws cloudformation create-stack --stack-name ${os}-${engine}-${cluster}-$( date +%s ) --template-body file://${location} --capabilities CAPABILITY_NAMED_IAM
+aws cloudformation create-stack --stack-name ${os}-${engine}-${cluster}-$( date +%s ) --template-body file://${location} --capabilities CAPABILITY_NAMED_IAM --parameters ParameterKey=RecordSetName,ParameterValue=kubernetes-${os}-${engine}
 ```
 
 ## How to install a Kubernetes cluster with 3 masters and any number of workers
