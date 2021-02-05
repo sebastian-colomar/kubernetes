@@ -18,9 +18,9 @@ port_master=6443                                                        ;
 sleep=10                                                                ;
 uuid=/tmp/$( uuidgen )                                                  ;
 #########################################################################
-sudo sed --in-place                                                     \
-        /$kube/d                                                        \
-        /etc/hosts                                                      ;
+echo $ip_master1 $kube                                                  \
+|                                                                       \
+sudo tee --append /etc/hosts                                            ;
 #########################################################################
 token_discovery="$(                                                     \
         echo $token_discovery                                           \
