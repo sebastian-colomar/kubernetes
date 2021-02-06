@@ -1,9 +1,9 @@
 ```bash
-kubectl create deploy web_1 --image=nginx
-kubectl create deploy web_2 --image=nginx
+kubectl create deploy web1 --image=nginx
+kubectl create deploy web2 --image=nginx
 
-kubectl expose deployment web_1 --type=NodePort --port=80
-kubectl expose deployment web_2 --type=NodePort --port=80
+kubectl expose deployment web1 --type=NodePort --port=80
+kubectl expose deployment web2 --type=NodePort --port=80
 
 tee ingress-rbac.yaml <<EOF
 ---
@@ -121,18 +121,18 @@ metadata:
     kubernetes.io/ingress.class: traefik
 spec:
   rules:
-  - host: www.web_1.com
+  - host: www.web1.com
     http:
       paths:
       - backend:
-          serviceName: web_1
+          serviceName: web1
           servicePort: 80
         path: /
-  - host: www.web_2.com
+  - host: www.web2.com
     http:
       paths:
       - backend:
-          serviceName: web_2
+          serviceName: web2
           servicePort: 80
         path: /
 ---
