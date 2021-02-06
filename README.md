@@ -18,8 +18,8 @@ os=ubuntu18
 
 # CHOOSE YOUR CONTAINER ENGINE
 engine=containerd
-engine=docker
 engine=cri-o
+engine=docker
 
 location=kubernetes/${os}/${engine}/etc/aws/${cluster}.yaml
 
@@ -35,8 +35,8 @@ os=ubuntu18
 
 # CHOOSE YOUR CONTAINER ENGINE
 engine=containerd
-engine=docker
 engine=cri-o
+engine=docker
 
 git clone https://github.com/academiaonline/kubernetes --single-branch -b main
 source kubernetes/${os}/${engine}/bin/install-leader.sh
@@ -49,8 +49,8 @@ os=ubuntu18
 
 # CHOOSE YOUR CONTAINER ENGINE
 engine=containerd
-engine=docker
 engine=cri-o
+engine=docker
 
 git clone https://github.com/academiaonline/kubernetes --single-branch -b main
 
@@ -71,8 +71,8 @@ os=ubuntu18
 
 # CHOOSE YOUR CONTAINER ENGINE
 engine=containerd
-engine=docker
 engine=cri-o
+engine=docker
 
 git clone https://github.com/academiaonline/kubernetes --single-branch -b main
 
@@ -98,8 +98,8 @@ os=ubuntu18
 
 # CHOOSE YOUR CONTAINER ENGINE
 engine=containerd
-engine=docker
 engine=cri-o
+engine=docker
 
 git clone https://github.com/academiaonline/kubernetes --single-branch -b main
 source kubernetes/${os}/${engine}/bin/install-leader.sh
@@ -112,8 +112,8 @@ os=ubuntu18
 
 # CHOOSE YOUR CONTAINER ENGINE
 engine=containerd
-engine=docker
 engine=cri-o
+engine=docker
 
 git clone https://github.com/academiaonline/kubernetes --single-branch -b main
 
