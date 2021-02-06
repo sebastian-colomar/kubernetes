@@ -1,0 +1,52 @@
+---
+kind: DaemonSet
+apiVersion: apps/v1
+metadata:
+  name: traefik
+  namespace: kube-system
+  labels:
+    ingress: traefik
+spec:
+  selector:
+    matchLabels:
+      ingress: traefik
+  template:
+    metadata:
+      labels:
+        ingress: traefik
+        #name: traefik
+    spec:
+      serviceAccountName: traefik
+      terminationGracePeriodSeconds: 60
+      hostNetwork: True
+      containers:
+      - image: traefik:1.7.13
+        name: traefik
+        ports:
+        - name: http
+          containerPort: 80
+          hostPort: 80
+        - name: admin
+          containerPort: 8080
+          hostPort: 8080
+        args:
+        - --api
+        - --kubernetes
+        - --logLevel=INFO
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: traefik
+  namespace: kube-system
+spec:
+  selector:
+    ingress: traefik
+  ports:
+    - protocol: TCP
+      port: 80
+      name: web
+    - protocol: TCP
+      port: 8080
+      name: admin
+---
