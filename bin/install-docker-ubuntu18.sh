@@ -12,7 +12,7 @@ sudo apt-get update                                                     ;
 sudo apt-get install -y ${engine}.io                                    \
         2>& 1                                                           \
 |                                                                       \
-tee --append $log                                                       ;
+tee --append ${log}                                                     ;
 sudo systemctl enable --now ${engine}                                   \
         2>& 1                                                           \
 |                                                                       \
