@@ -15,7 +15,7 @@ sleep=10                                                                ;
 version="1.18.14-00"                                                    ;
 yum_key=https://packages.cloud.google.com/yum/doc/yum-key.gpg		;
 #########################################################################
-#sudo yum update -y							;
+sudo yum update -y							;
 sudo yum install -y python3						;
 region=$( 								\
 	curl -s 							\
