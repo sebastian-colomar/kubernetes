@@ -43,6 +43,7 @@ sudo sysctl --system							;
 #########################################################################
 sudo yum install -y yum-utils device-mapper-persistent-data lvm2	;
 sudo yum-config-manager --add-repo ${repo}				;
+sudo yum install -y podman
 sudo yum install -y ${engine}.io					\
         2>& 1                                                           \
 |                                                                       \
