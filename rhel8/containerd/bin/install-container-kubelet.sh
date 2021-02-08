@@ -15,8 +15,7 @@ sleep=10                                                                ;
 version="1.18.14-00"                                                    ;
 yum_key=https://packages.cloud.google.com/yum/doc/yum-key.gpg		;
 #########################################################################
-sudo yum update -y							;
-sudo yum install -y python3						;
+sudo yum -y install python3						;
 region=$( 								\
 	curl -s 							\
 	http://169.254.169.254/latest/dynamic/instance-identity/document\
@@ -24,8 +23,10 @@ region=$( 								\
 	awk -F '"' /region/'{ print $4 }' 				\
 )									;
 path=amazon-ssm-${region}/latest/linux_amd64/amazon-ssm-agent.rpm	;
-sudo yum install -y 							\
+sudo yum -y install 							\
 	https://s3.${region}.amazonaws.com/${path}			;
+sudo yum -y update #DEBUG
+touch /tmp/finished-update #DEBUG
 #########################################################################
 sudo tee /etc/modules-load.d/${engine}.conf <<EOF
 overlay
