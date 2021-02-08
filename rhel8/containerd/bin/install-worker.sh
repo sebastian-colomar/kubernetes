@@ -18,7 +18,9 @@ port_master=6443                                                        ;
 sleep=10                                                                ;
 uuid=/tmp/$( uuidgen )                                                  ;
 #########################################################################
-echo $ip_leader $ip_master1                                             \
+# TEMPORARY SOLUTION UNTIL WE DEPLOY A PROPER KUBE-APISERVER LOADBALANCER
+#########################################################################
+echo $ip_master1 $kube                                                  \
 |                                                                       \
 sudo tee --append /etc/hosts                                            ;
 #########################################################################
