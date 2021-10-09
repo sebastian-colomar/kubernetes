@@ -1,15 +1,18 @@
 # How to install a Kubernetes cluster
-![CI](https://github.com/academiaonline/kubernetes/workflows/CI/badge.svg?branch=v2.2)
+![CI](https://github.com/academiaonline/kubernetes/workflows/CI/badge.svg?branch=v2.3)
 
 ## How to create the infrastructure in AWS
 On Cloud9:
 ```
 aws configure
 
-git clone https://github.com/academiaonline/kubernetes --single-branch -b main
+github_username=academiaonline
+github_repository=kubernetes
+github_branch=v2.3
+
+git clone https://github.com/${github_username}/${github_repository} --single-branch -b ${github_branch}
 
 # CHOOSE THE CONFIGURATION FOR YOUR CLUSTER DEPENDING ON THE REGION AND PROTOCOL
-# https://github.com/academiaonline/kubernetes/tree/main/etc/aws
 cluster=mumbai-kubelet-3masters-3workers-https
 
 # CHOOSE YOUR OPERATING SYSTEM
@@ -29,6 +32,10 @@ aws cloudformation create-stack --stack-name ${os}-${engine}-${cluster}-$( date 
 ## How to install a Kubernetes cluster with 3 masters and any number of workers
 On the leader (master1):
 ```
+github_username=academiaonline
+github_repository=kubernetes
+github_branch=v2.3
+
 # CHOOSE YOUR OPERATING SYSTEM
 os=rhel8
 os=ubuntu18
@@ -38,11 +45,15 @@ engine=containerd
 engine=cri-o
 engine=docker
 
-git clone https://github.com/academiaonline/kubernetes --single-branch -b main
+git clone https://github.com/${github_username}/${github_repository} --single-branch -b ${github_branch}
 source kubernetes/${os}/${engine}/bin/install-leader.sh
 ```
 On the master2 and master3:
 ```
+github_username=academiaonline
+github_repository=kubernetes
+github_branch=v2.3
+
 # CHOOSE YOUR OPERATING SYSTEM
 os=rhel8
 os=ubuntu18
@@ -52,7 +63,7 @@ engine=containerd
 engine=cri-o
 engine=docker
 
-git clone https://github.com/academiaonline/kubernetes --single-branch -b main
+git clone https://github.com/${github_username}/${github_repository} --single-branch -b ${github_branch}
 
 # EXPORT THE FOLLOWING VARIABLES FROM THE OUTPUT OF THE LEADER
 export ip_leader=xxx
@@ -65,6 +76,10 @@ source kubernetes/${os}/${engine}/bin/install-master.sh
 ```
 On the workers:
 ```
+github_username=academiaonline
+github_repository=kubernetes
+github_branch=v2.3
+
 # CHOOSE YOUR OPERATING SYSTEM
 os=rhel8
 os=ubuntu18
@@ -74,7 +89,7 @@ engine=containerd
 engine=cri-o
 engine=docker
 
-git clone https://github.com/academiaonline/kubernetes --single-branch -b main
+git clone https://github.com/${github_username}/${github_repository} --single-branch -b ${github_branch}
 
 # EXPORT THE FOLLOWING VARIABLES FROM THE OUTPUT OF THE LEADER
 export token_discovery=xxx
@@ -92,6 +107,10 @@ source kubernetes/${os}/${engine}/bin/install-worker.sh
 ## How to install a Kubernetes cluster with 1 single master and any number of workers
 On the leader (master1):
 ```
+github_username=academiaonline
+github_repository=kubernetes
+github_branch=v2.3
+
 # CHOOSE YOUR OPERATING SYSTEM
 os=rhel8
 os=ubuntu18
@@ -101,11 +120,15 @@ engine=containerd
 engine=cri-o
 engine=docker
 
-git clone https://github.com/academiaonline/kubernetes --single-branch -b main
+git clone https://github.com/${github_username}/${github_repository} --single-branch -b ${github_branch}
 source kubernetes/${os}/${engine}/bin/install-leader.sh
 ```
 On the workers:
 ```
+github_username=academiaonline
+github_repository=kubernetes
+github_branch=v2.3
+
 # CHOOSE YOUR OPERATING SYSTEM
 os=rhel8
 os=ubuntu18
@@ -115,7 +138,7 @@ engine=containerd
 engine=cri-o
 engine=docker
 
-git clone https://github.com/academiaonline/kubernetes --single-branch -b main
+git clone https://github.com/${github_username}/${github_repository} --single-branch -b ${github_branch}
 
 # EXPORT THE FOLLOWING VARIABLES FROM THE OUTPUT OF THE LEADER
 export token_discovery=xxx
