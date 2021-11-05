@@ -1,7 +1,7 @@
 # How to install a Kubernetes cluster
 ![CI](https://github.com/academiaonline/kubernetes/workflows/CI/badge.svg?branch=main)
 
-## How to create the infrastructure in AWS
+## First create the infrastructure in AWS
 On Cloud9:
 ```
 aws configure
