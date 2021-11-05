@@ -1,5 +1,5 @@
 # How to install a Kubernetes cluster
-![CI](https://github.com/academiaonline/kubernetes/workflows/CI/badge.svg?branch=v2.3)
+![CI](https://github.com/academiaonline/kubernetes/workflows/CI/badge.svg?branch=main)
 
 ## How to create the infrastructure in AWS
 On Cloud9:
@@ -8,7 +8,7 @@ aws configure
 
 github_username=academiaonline
 github_repository=kubernetes
-github_branch=v2.3
+github_branch=main
 
 git clone https://github.com/${github_username}/${github_repository} --single-branch -b ${github_branch}
 
@@ -34,7 +34,7 @@ On the leader (master1):
 ```
 github_username=academiaonline
 github_repository=kubernetes
-github_branch=v2.3
+github_branch=main
 
 # CHOOSE YOUR OPERATING SYSTEM
 os=rhel8
@@ -52,7 +52,7 @@ On the master2 and master3:
 ```
 github_username=academiaonline
 github_repository=kubernetes
-github_branch=v2.3
+github_branch=main
 
 # CHOOSE YOUR OPERATING SYSTEM
 os=rhel8
@@ -78,7 +78,7 @@ On the workers:
 ```
 github_username=academiaonline
 github_repository=kubernetes
-github_branch=v2.3
+github_branch=main
 
 # CHOOSE YOUR OPERATING SYSTEM
 os=rhel8
@@ -109,7 +109,7 @@ On the leader (master1):
 ```
 github_username=academiaonline
 github_repository=kubernetes
-github_branch=v2.3
+github_branch=main
 
 # CHOOSE YOUR OPERATING SYSTEM
 os=rhel8
@@ -127,7 +127,7 @@ On the workers:
 ```
 github_username=academiaonline
 github_repository=kubernetes
-github_branch=v2.3
+github_branch=main
 
 # CHOOSE YOUR OPERATING SYSTEM
 os=rhel8
