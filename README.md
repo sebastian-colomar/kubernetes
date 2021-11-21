@@ -31,6 +31,7 @@ aws cloudformation create-stack --stack-name ${os}-${engine}-${cluster}-$( date 
 ## How to install a Kubernetes cluster with 3 masters and any number of workers
 On the leader (master1):
 ```
+bash
 dir=/tmp
 github_username=academiaonline-org
 github_repository=kubernetes
@@ -50,6 +51,7 @@ source ${dir}/${github_repository}/${os}/${engine}/bin/install-leader.sh
 ```
 On the master2 and master3:
 ```
+bash
 dir=/tmp
 github_username=academiaonline-org
 github_repository=kubernetes
@@ -77,6 +79,7 @@ source ${dir}/${github_repository}/${os}/${engine}/bin/install-master.sh
 ```
 On the workers:
 ```
+bash
 dir=/tmp
 github_username=academiaonline-org
 github_repository=kubernetes
@@ -109,6 +112,7 @@ source ${dir}/${github_repository}/${os}/${engine}/bin/install-worker.sh
 ## How to install a Kubernetes cluster with 1 single master and any number of workers
 On the leader (master1):
 ```
+bash
 dir=/tmp
 github_username=academiaonline-org
 github_repository=kubernetes
@@ -128,6 +132,7 @@ source ${dir}/${github_repository}/${os}/${engine}/bin/install-leader.sh
 ```
 On the workers:
 ```
+bash
 dir=/tmp
 github_username=academiaonline-org
 github_repository=kubernetes
