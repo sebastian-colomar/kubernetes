@@ -67,14 +67,16 @@ engine=cri-o
 engine=docker
 
 git clone https://github.com/${github_username}/${github_repository} --single-branch -b ${github_branch} ${dir}/${github_repository}
-
+```
+```
 # EXPORT THE FOLLOWING VARIABLES FROM THE OUTPUT OF THE LEADER
 export ip_leader=xxx
 export token_certificate=xxx
 export token_discovery=xxx
 export token_token=xxx
 export kube=kube-xxx
-
+```
+```
 source ${dir}/${github_repository}/${os}/${engine}/bin/install-master.sh
 ```
 On the workers:
@@ -95,17 +97,20 @@ engine=cri-o
 engine=docker
 
 git clone https://github.com/${github_username}/${github_repository} --single-branch -b ${github_branch} ${dir}/${github_repository}
-
+```
+```
 # EXPORT THE FOLLOWING VARIABLES FROM THE OUTPUT OF THE LEADER
 export token_discovery=xxx
 export token_token=xxx
 export kube=kube-xxx
 export ip_master1=xxx
-
+```
+```
 # EXPORT THE FOLLOWING VARIABLES FROM THE OUTPUT OF THE MASTERS
 export ip_master2=xxx
 export ip_master3=xxx
-
+```
+```
 source ${dir}/${github_repository}/${os}/${engine}/bin/install-worker.sh
 ```
 
@@ -148,12 +153,14 @@ engine=cri-o
 engine=docker
 
 git clone https://github.com/${github_username}/${github_repository} --single-branch -b ${github_branch} ${dir}/${github_repository}
-
+```
+```
 # EXPORT THE FOLLOWING VARIABLES FROM THE OUTPUT OF THE LEADER
 export token_discovery=xxx
 export token_token=xxx
 export kube=kube-xxx
 export ip_master1=xxx
-
+```
+```
 source ${dir}/${github_repository}/${os}/${engine}/bin/install-worker-singlemaster.sh
 ```
