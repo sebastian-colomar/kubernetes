@@ -4,7 +4,7 @@
 ## First create the infrastructure in AWS
 On Cloud9:
 ```
-dir=/tmp
+dir=${HOME}/environment
 github_username=academiaonline-org
 github_repository=kubernetes
 github_branch=main
