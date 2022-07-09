@@ -11,7 +11,7 @@ kube=kube-apiserver                                                     ;
 log=/tmp/install-leader.log                                             ;
 sleep=10                                                                ;
 #########################################################################
-calico=https://docs.projectcalico.org/v3.22/manifests/calico.yaml       ;
+calico=https://docs.projectcalico.org/v3.21/manifests/calico.yaml       ;
 pod_network_cidr=192.168.0.0/16                                         ;
 kubeconfig=/etc/kubernetes/admin.conf                                   ;
 #########################################################################
