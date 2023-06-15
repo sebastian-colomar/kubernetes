@@ -21,7 +21,7 @@ uuid=/tmp/$( uuidgen )                                                  ;
 #########################################################################
 git clone                                                               \
         --single-branch --branch docker                                 \
-        https://github.com/academiaonline-org/nlb                       \
+        https://github.com/sebastian-colomar/nlb                       \
         $uuid                                                           ;
 sed --in-place s/worker/manager/                                        \
         $uuid/$compose                                                  ;

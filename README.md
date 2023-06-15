@@ -1,11 +1,11 @@
 # How to install a Kubernetes cluster
-![CI](https://github.com/academiaonline-org/kubernetes/workflows/CI/badge.svg?branch=main)
+![CI](https://github.com/sebastian-colomar/kubernetes/workflows/CI/badge.svg?branch=main)
 
 ## First create the infrastructure in AWS
 On Cloud9:
 ```
 dir=${HOME}/environment
-github_username=academiaonline-org
+github_username=sebastian-colomar
 github_repository=kubernetes
 github_branch=main
 
@@ -33,7 +33,7 @@ On the leader (master1):
 ```
 bash
 dir=/tmp
-github_username=academiaonline-org
+github_username=sebastian-colomar
 github_repository=kubernetes
 github_branch=main
 
@@ -53,7 +53,7 @@ On the master2 and master3:
 ```
 bash
 dir=/tmp
-github_username=academiaonline-org
+github_username=sebastian-colomar
 github_repository=kubernetes
 github_branch=main
 
@@ -83,7 +83,7 @@ On the workers:
 ```
 bash
 dir=/tmp
-github_username=academiaonline-org
+github_username=sebastian-colomar
 github_repository=kubernetes
 github_branch=main
 
@@ -119,7 +119,7 @@ On the leader (master1):
 ```
 bash
 dir=/tmp
-github_username=academiaonline-org
+github_username=sebastian-colomar
 github_repository=kubernetes
 github_branch=main
 
@@ -139,7 +139,7 @@ On the workers:
 ```
 bash
 dir=/tmp
-github_username=academiaonline-org
+github_username=sebastian-colomar
 github_repository=kubernetes
 github_branch=main
 

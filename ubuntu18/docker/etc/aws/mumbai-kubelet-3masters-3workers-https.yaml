@@ -186,7 +186,7 @@ Parameters:
     Type: String
     
   NodeInstallUrlPath:
-    Default: "https://github.com/academiaonline-org/kubernetes"
+    Default: "https://github.com/sebastian-colomar/kubernetes"
     Description: >
       The URL path to download the script for the common install of the nodes.
     Type: String
