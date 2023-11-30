@@ -8,3 +8,6 @@ kubectl config set-context --current --namespace fusion-apd-x1df5
 ```
 kubectl get po -A -o jsonpath-as-json="{.items[*].spec.containers[*].image}"
 ```
+```
+kubectl get po fury -ojsonpath="{.metadata.name},{.spec.containers[*].resources.limits.memory}"
+```
