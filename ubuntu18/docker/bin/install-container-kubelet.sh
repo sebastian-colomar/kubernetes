@@ -19,7 +19,7 @@ sudo systemctl enable --now ${engine}                                   \
 tee --append $log                                                       ;
 #########################################################################
 sleep=10                                                                ;
-version="1.18.14-00"                                                    ;
+version=1.24.17-1.1                                                    ;
 #########################################################################
 while true                                                              ;
 do                                                                      \
@@ -31,15 +31,16 @@ do                                                                      \
         sleep $sleep                                                    ;
 done                                                                    ;
 #########################################################################
-curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg           \
+sudo mkdir -p /etc/apt/keyrings
+curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.29/deb/Release.key           \
 |                                                                       \
-sudo apt-key add -                                                      \
+sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg                                                      \
         2>& 1                                                           \
 |                                                                       \
 tee --append $log                                                       ;
-echo deb http://apt.kubernetes.io/ kubernetes-xenial main               \
+echo 'deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.24/deb/ /'               \
 |                                                                       \
-sudo tee -a /etc/apt/sources.list.d/kubernetes.list                     ;
+sudo tee /etc/apt/sources.list.d/kubernetes.list                     ;
 sudo apt-get update                                                     \
         2>& 1                                                           \
 |                                                                       \
