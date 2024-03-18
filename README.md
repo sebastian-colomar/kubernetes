@@ -28,7 +28,7 @@ On Cloud9:
 dir=${HOME}/environment
 github_username=sebastian-colomar
 github_repository=kubernetes
-github_branch=main
+github_branch=ubuntu-22_kubernetes-1.29
 
 git clone https://github.com/${github_username}/${github_repository} --single-branch -b ${github_branch} ${dir}/${github_repository}
 
@@ -37,12 +37,12 @@ cluster=mumbai-kubelet-3masters-3workers-https
 
 # CHOOSE YOUR OPERATING SYSTEM
 os=rhel8
-os=ubuntu18
+os=ubuntu22
 
 # CHOOSE YOUR CONTAINER ENGINE
+engine=docker
 engine=containerd
 engine=cri-o
-engine=docker
 
 location=${dir}/${github_repository}/${os}/${engine}/etc/aws/${cluster}.yaml
 
