@@ -5,11 +5,29 @@
 #########################################################################
 set -x                                                                  ;
 #########################################################################
-engine=docker								;
+engine=crio								;
 log=/tmp/install-container-kubelet.log                                  ;
 #########################################################################
+echo 'deb http://deb.debian.org/debian buster-backports main' | sudo tee /etc/apt/sources.list.d/backports.list
+sudo apt update
+sudo apt install -y -t buster-backports libseccomp2 || sudo apt update -y -t buster-backports libseccomp2
+
+OS=xUbuntu_22.04
+VERSION=1.24
+
+echo "deb [signed-by=/usr/share/keyrings/libcontainers-archive-keyring.gpg] https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/$OS/ /" | sudo tee /etc/apt/sources.list.d/devel:kubic:libcontainers:stable.list
+echo "deb [signed-by=/usr/share/keyrings/libcontainers-crio-archive-keyring.gpg] https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable:/cri-o:/$VERSION/$OS/ /" | sudo tee /etc/apt/sources.list.d/devel:kubic:libcontainers:stable:cri-o:$VERSION.list
+
+sudo mkdir -p /usr/share/keyrings
+curl -L https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/$OS/Release.key | sudo gpg --dearmor -o /usr/share/keyrings/libcontainers-archive-keyring.gpg
+curl -L https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable:/cri-o:/$VERSION/$OS/Release.key | sudo gpg --dearmor -o /usr/share/keyrings/libcontainers-crio-archive-keyring.gpg
+
+
 sudo apt-get update                                                     ;
-sudo apt-get install -y ${engine}.io                                    \
+
+sudo apt-get install containernetworking-plugins -y
+
+sudo apt-get install -y cri-o cri-o-runc                                    \
         2>& 1                                                           \
 |                                                                       \
 tee --append $log                                                       ;
