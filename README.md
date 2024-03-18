@@ -28,7 +28,7 @@ On Cloud9:
 dir=${HOME}/environment
 github_username=sebastian-colomar
 github_repository=kubernetes
-github_branch=ubuntu-22_kubernetes-1.29
+github_branch=ubuntu22_kubernetes29
 
 git clone https://github.com/${github_username}/${github_repository} --single-branch -b ${github_branch} ${dir}/${github_repository}
 
